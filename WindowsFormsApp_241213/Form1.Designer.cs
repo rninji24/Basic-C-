@@ -41,7 +41,6 @@
             this.textBox_print.Name = "textBox_print";
             this.textBox_print.Size = new System.Drawing.Size(818, 416);
             this.textBox_print.TabIndex = 0;
-            this.textBox_print.TextChanged += new System.EventHandler(this.textBox_print_TextChanged);
             // 
             // label1
             // 
