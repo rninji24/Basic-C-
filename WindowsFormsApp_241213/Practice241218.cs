@@ -25,10 +25,9 @@ namespace WindowsFormsApp_241213
 
         int[] clac_division_mod(int x, int y)
         {
-            int a = x;
-            int b = y;
-            int result = a / b;
-            int result2 = a % b;
+        
+            int result = x / y;
+            int result2 = x % y;
             int[] ints = new int[2];
             ints[0] = result;
             ints[1] = result2;
