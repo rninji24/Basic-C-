@@ -57,9 +57,9 @@ namespace WindowsFormsApp_241213
         #region practice2 함수
         Boolean coinToss_winorlose(Boolean front_back)
         {
-            Random random = new Random();
-            int a = random.Next(0, 2);
-            if (a == 1)
+            Random randomObj = new Random();
+            int random = randomObj.Next();
+            if (random % 2 == 1)
             {
                 return true;
             }
