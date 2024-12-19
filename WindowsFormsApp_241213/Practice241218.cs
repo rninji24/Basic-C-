@@ -25,17 +25,17 @@ namespace WindowsFormsApp_241213
             #endregion
 
             #region practice2
-            bool coin_fornt = true;
-            bool coin_back = false;
-            bool result = coinToss_winorlose(coin_fornt);
-            if (result == true)
-            {
-                textBox_print.Text = "승리";
-            }
-            else
-            {
-                textBox_print.Text += "패배";
-            }
+            //bool coin_fornt = true;
+            //bool coin_back = false;
+            //bool result = coinToss_winorlose(coin_fornt);
+            //if (result == true)
+            //{
+            //    textBox_result.Text = "승리";
+            //}
+            //else
+            //{
+            //    textBox_result.Text += "패배";
+            //}
             #endregion
 
 
@@ -55,10 +55,12 @@ namespace WindowsFormsApp_241213
         #endregion
 
         #region practice2 함수
-        Boolean coinToss_winorlose(Boolean front_back)
+        Boolean coinToss_winorlose(Boolean coinSide)
         {
             Random randomObj = new Random();
             int random = randomObj.Next();
+
+            bool compare = Convert.ToBoolean(random % 2);
             if (random % 2 == 1)
             {
                 return true;
@@ -67,9 +69,62 @@ namespace WindowsFormsApp_241213
             {
                 return false;
             }
+
+            // 코인 뽑기
+            //bool result = false;
+            //if(random % 2 == 1)
+            //{
+            //    result = true;
+            //} // 0, false
+            // 사용자 입력과 비교
+            //if (coinSide == result)
+            //{
+            //    return true;
+            //}
+            //return false;
+
         }
         #endregion
 
+        #region 241219 practice1
+        private void button_input_Click(object sender, EventArgs e)
+        {
+            // textBox_input.Text의 문자열을
+            // textBox_result.Text로 복사
+            
+            if (textBox_input.Text == "true" || textBox_input.Text == "false")
+            {
+                textBox_result.Text = "입력하신 값은 " + Convert.ToBoolean(textBox_input.Text) + " 입니다!\r\n";
+                textBox_result.Text += "동전 던지기 결과...\r\n";
+                bool result = coinToss_winorlose(Convert.ToBoolean(textBox_input.Text));
+                if (result == true)
+                {
+                    textBox_result.Text += "승리";
+                }
+                else
+                {
+                    textBox_result.Text += "패배";
+                }
+            }
+            else
+            {
+                textBox_result.Text = "true 또는 false만 입력하세요";
+                
+            }
+    
+        }
+
+        private void appendrdbText(object sender, EventArgs e)
+        {
+            if (radioButton_true.Checked) textBox_input.Text = radioButton_true.Text;
+            else if (radioButton_false.Checked) textBox_input.Text = radioButton_false.Text;
+
+        }
+        private void radioButton_true_CheckedChanged(object sender, EventArgs e)
+        {
+            appendrdbText(sender, e);
+        }
+        #endregion
     }
 
 }
