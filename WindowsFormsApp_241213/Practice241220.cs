@@ -18,18 +18,23 @@ namespace WindowsFormsApp_241213
             
         }
 
+        void makeSentence(string name, int score)
+        { 
+            textBox_result.Text += name + ": " + score + "점\r\n";
+        }
         private void button_input_Click(object sender, EventArgs e)
         {
             Random random = new Random();
             
             int student_num = int.Parse(textBox_input.Text);
             int[] student_score = new int[student_num];
-
+            textBox_result.Text = "";
             for (int i = 0; i < student_num; i++)
             {
-                int score = random.Next(100);
+                int score = random.Next(101);
                 student_score[i] = score;
-                textBox_result.Text += "학생" + (i + 1) + "의 점수: " + student_score[i] + "점\r\n";
+                string studentName = "학생" + (i+1).ToString();
+                makeSentence(studentName, student_score[i]);        
             }
         }
     }
