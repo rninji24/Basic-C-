@@ -16,7 +16,7 @@ namespace WindowsFormsApp_241213
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Practice241220());
+            Application.Run(new Form250107());
         }
     }
 }
